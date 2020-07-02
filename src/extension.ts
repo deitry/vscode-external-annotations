@@ -26,12 +26,10 @@ export function activate(context: vscode.ExtensionContext) {
             const range = document.getWordRangeAtPosition(position);
             const word = document.getText(range);
 
-            if (word === "HELLO") {
-                return new vscode.Hover({
-                    language: "Hello language",
-                    value: "Hello Value"
-                });
-            }
+            return new vscode.Hover({
+                language: "Hello language",
+                value: `External annotations for ${word}`,
+            });
         }
     });
     context.subscriptions.push(disposable);
